@@ -11,6 +11,26 @@ public class Frog extends Actor
      */
     public void act()
     {
-        move(1);// Add your action code here.
+        if(Greenfoot.isKeyDown("a"))
+        {
+            move(-2);
+        }
+        if(Greenfoot.isKeyDown("d"))
+        {
+            move(2);
+        }// 
+        spawnPizza();
+    }
+    
+    public void spawnPizza()
+    {
+        int x = Greenfoot.getRandomNumber(600);
+        int y = 0;
+        if(isTouching(Pizza.class))
+        {
+            removeTouching(Pizza.class);
+            
+            addObject(pizza, x, y);
+        }   
     }
 }

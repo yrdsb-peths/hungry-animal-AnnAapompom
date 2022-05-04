@@ -20,6 +20,9 @@ public class MyWorld extends World
         Frog f = new Frog();
         addObject(f,300, 200);
         prepare();
+        
+        Pizza pizza = new Pizza();
+        addObject(pizza,300, 0);
     }
     /**
      * Prepare the world for the start of the program.
@@ -27,5 +30,5 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-    }
+    }   
 }
