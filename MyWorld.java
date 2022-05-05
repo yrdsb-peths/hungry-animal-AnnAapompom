@@ -33,5 +33,14 @@ public class MyWorld extends World
         
         Pizza pizza = new Pizza();
         addObject(pizza,x, y);
-    }   
+    }  
+    
+    public void spawnFries()
+    {
+        int x = Greenfoot.getRandomNumber(600);
+        int y = 0;
+        
+        Fries fries = new Fries();
+        addObject(fries, x, y);
+    }
 }
