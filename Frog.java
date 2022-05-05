@@ -13,24 +13,24 @@ public class Frog extends Actor
     {
         if(Greenfoot.isKeyDown("a"))
         {
-            move(-2);
+            move(-3);
         }
         if(Greenfoot.isKeyDown("d"))
         {
-            move(2);
-        }// 
-        spawnPizza();
+            move(3);
+        }
+        eat();
     }
     
-    public void spawnPizza()
+    public void eat()
     {
-        int x = Greenfoot.getRandomNumber(600);
-        int y = 0;
         if(isTouching(Pizza.class))
         {
             removeTouching(Pizza.class);
-            
-            addObject(pizza, x, y);
-        }   
+            MyWorld world = (MyWorld) getWorld();
+            world.spawnPizza();
+        }
     }
+    
+    
 }

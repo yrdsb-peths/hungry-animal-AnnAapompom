@@ -19,16 +19,19 @@ public class MyWorld extends World
         super(600, 400, 1); 
         Frog f = new Frog();
         addObject(f,300, 200);
-        prepare();
         
-        Pizza pizza = new Pizza();
-        addObject(pizza,300, 0);
+        spawnPizza();
     }
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
-    private void prepare()
+    public void spawnPizza()
     {
+        int x = Greenfoot.getRandomNumber(600);
+        int y = 0;
+        
+        Pizza pizza = new Pizza();
+        addObject(pizza,x, y);
     }   
 }
