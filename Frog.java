@@ -28,12 +28,14 @@ public class Frog extends Actor
         {
             removeTouching(Pizza.class);
             MyWorld world = (MyWorld) getWorld();
+            world.increaseScore();
             world.spawnFries();
         }
         if(isTouching(Fries.class))
         {
             removeTouching(Fries.class);
             MyWorld world = (MyWorld) getWorld();
+            world.increaseScore();
             world.spawnPizza();
         }
     }
