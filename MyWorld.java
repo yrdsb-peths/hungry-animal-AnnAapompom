@@ -18,9 +18,9 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1, false); 
+        super(600, 300, 1, false); 
         Frog f = new Frog();
-        addObject(f,300, 350);
+        addObject(f,200, 250);
         
         //Add a label
         addObject(scoreLabel, 50, 50);

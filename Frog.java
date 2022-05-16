@@ -26,6 +26,7 @@ public class Frog extends Actor
     {
         if(isTouching(Pizza.class))
         {
+            Greenfoot.playSound("frog_sound.mp3");
             removeTouching(Pizza.class);
             MyWorld world = (MyWorld) getWorld();
             world.increaseScore();
@@ -33,6 +34,7 @@ public class Frog extends Actor
         }
         if(isTouching(Fries.class))
         {
+            Greenfoot.playSound("frog_sound.mp3");
             removeTouching(Fries.class);
             MyWorld world = (MyWorld) getWorld();
             world.increaseScore();
