@@ -5,10 +5,25 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Frog extends Actor
 {
-    /**
-     * Act - do whatever the Frog wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private GreenfootImage[] images;
+    
+    public Frog()
+    {
+        images = new GreenfootImage[3];
+        images[0] = new GreenfootImage("images/frog_animate/frog0.png");
+        for(int i = 0; i < images.length; i++)
+        {
+            images[i] = new GreenfootImage("images/frog_animate/frog" + i + ".png"); //complete   
+        }
+        setImage(images[0]);
+    }    
+    int curIndex = 0;
+    public void animate()
+    {
+        setImage(images[curIndex]);   
+        curIndex++;
+        curIndex %= 3;
+    }
     public void act()
     {
         if(Greenfoot.isKeyDown("a"))
@@ -20,8 +35,8 @@ public class Frog extends Actor
             move(3);
         }
         eat();
+        animate();
     }
-    
     public void eat()
     {
         if(isTouching(Pizza.class))
@@ -41,6 +56,4 @@ public class Frog extends Actor
             world.spawnPizza();
         }
     }
-    
-    
 }
