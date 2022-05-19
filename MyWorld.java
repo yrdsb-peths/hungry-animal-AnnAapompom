@@ -18,13 +18,13 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 300, 1, false); 
+        super(600, 340, 1, false); 
         TitleScreenWorld title = new TitleScreenWorld();
         Greenfoot.setWorld(title);
         if(Greenfoot.isKeyDown("space"))
         {
             Frog f = new Frog();
-            addObject(f,200, 250);
+            addObject(f,200, 240);
             //Add a label
             addObject(scoreLabel, 50, 50);
             //Add a pizza

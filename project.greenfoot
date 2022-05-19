@@ -1,8 +1,10 @@
 #Greenfoot project file
 class.Fries.image=chips-1.png
 class.Frog.image=frog.png
-class.MyWorld.image=frog\ hungry\ animal\ bckgrd.jpg
+class.GameOverWorld.image=frog\ title\ 1.png
+class.MyWorld.image=grassland\ bckgrd.png
 class.Pizza.image=pizza_cheese.png
+class.TitleScreenWorld.image=frog\ title\ 1.png
 dependency1.from=TitleScreenWorld
 dependency1.to=Label
 dependency1.type=UsesDependency
