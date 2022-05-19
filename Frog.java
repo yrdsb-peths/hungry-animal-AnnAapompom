@@ -43,7 +43,7 @@ public class Frog extends Actor
         setImage(images[curIndex]);
         curIndex++;
         curIndex %= 5;
-        if(animTimer.millisElapsed() > 800)
+        if(animTimer.millisElapsed() > 1000)
         {
             if(isFacingRight)
             {

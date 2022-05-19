@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-    public int score = 0;
+    public static int score = 0;
     
     public Label scoreLabel = new Label(0,80);
     /**
@@ -19,13 +19,17 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 300, 1, false); 
-        Frog f = new Frog();
-        addObject(f,200, 250);
-        
-        //Add a label
-        addObject(scoreLabel, 50, 50);
-        //Add a pizza
-        spawnPizza();
+        TitleScreenWorld title = new TitleScreenWorld();
+        Greenfoot.setWorld(title);
+        if(Greenfoot.isKeyDown("space"))
+        {
+            Frog f = new Frog();
+            addObject(f,200, 250);
+            //Add a label
+            addObject(scoreLabel, 50, 50);
+            //Add a pizza
+            spawnPizza();    
+        }
     }
     /**
      * Prepare the world for the start of the program.
@@ -55,6 +59,8 @@ public class MyWorld extends World
     public void gameOver()
     {
         Label gameOverLabel = new Label("Game Over!", 100);
-        addObject(gameOverLabel, 300, 200);        
+        addObject(gameOverLabel, 300, 200);   
+        GameOverWorld world = new GameOverWorld();
+        Greenfoot.setWorld(world);
     }
 }
