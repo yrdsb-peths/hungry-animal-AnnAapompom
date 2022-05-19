@@ -5,59 +5,51 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Frog extends Actor
 {
-    private GreenfootImage[] images;
+
     private GreenfootImage[] rightImages;
     private GreenfootImage[] leftImages;
 
     private SimpleTimer animTimer;
     private int delay = 0;
     private boolean isFacingRight = true;
-    
+
     public Frog()
-    {
-        images = new GreenfootImage[5];        
-        images[0] = new GreenfootImage("images/frog_animate/frog0.png");
-        for(int i = 0; i < images.length; i++)
+    {        
+        rightImages = new GreenfootImage[5]; 
+        leftImages = new GreenfootImage[5];  
+        for(int i = 0; i < rightImages.length; i++)
         {
-            images[i] = new GreenfootImage("images/frog_animate/frog" + i + ".png");
-            rightImages = new GreenfootImage[5]; 
-            leftImages = new GreenfootImage[5];        
-            for( i = 0; i < rightImages.length; i++)
-            {
-                rightImages[i] = new GreenfootImage("images/frog_animate/frog" + i + ".png");
-                //rightImages[i].scale(100,100);
-                leftImages[i] = new GreenfootImage("images/frog_animate/frog" + i + ".png"); 
-                leftImages[i].mirrorHorizontally();
-                //leftImages[i].scale(100,100);
-            }
+            rightImages[i] = new GreenfootImage("images/frog_animate/frog" + i + ".png");
+            //rightImages[i].scale(100,100);
+            leftImages[i] = new GreenfootImage("images/frog_animate/frog" + i + ".png"); 
+            leftImages[i].mirrorHorizontally();
+            //leftImages[i].scale(100,100);
+
         }
-        setImage(images[0]);
         setImage(rightImages[0]);
         animTimer = new SimpleTimer();
         animTimer.mark();
     }    
-    
+
     int curIndex = 0;
     public void animate()
     {
-        setImage(images[curIndex]);
-        curIndex++;
-        curIndex %= 5;
-        if(animTimer.millisElapsed() > 1000)
+        if(isFacingRight)
         {
-            if(isFacingRight)
-            {
-                setImage(rightImages[curIndex]);
-            }
-            else
-            {
-                setImage(leftImages[curIndex]);
-            }
+            setImage(rightImages[curIndex]);
+        }
+        else
+        {
+            setImage(leftImages[curIndex]);
+        }
+        if(animTimer.millisElapsed() > 100)
+        {
             curIndex++;
             curIndex %= 5;
             animTimer.mark();
         }
     }
+
     public void act()
     {
         if(Greenfoot.isKeyDown("a"))
@@ -73,6 +65,7 @@ public class Frog extends Actor
         eat();
         animate();
     }
+
     public void eat()
     {
         if(isTouching(Pizza.class))
