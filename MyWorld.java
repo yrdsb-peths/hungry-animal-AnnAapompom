@@ -18,17 +18,17 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 340, 1, false); 
+        super(600, 375, 1, false); 
         TitleScreenWorld title = new TitleScreenWorld();
         Greenfoot.setWorld(title);
         if(Greenfoot.isKeyDown("space"))
         {
             Frog f = new Frog();
-            addObject(f,200, 240);
+            addObject(f,300, 340);
             //Add a label
             addObject(scoreLabel, 50, 50);
             //Add a pizza
-            spawnPizza();    
+            spawnPizza(); 
         }
     }
     /**
@@ -50,6 +50,14 @@ public class MyWorld extends World
         
         Fries fries = new Fries();
         addObject(fries, x, y);
+    } 
+    public void spawnDrink()
+    {
+        int x = Greenfoot.getRandomNumber(600);
+        int y = 0;
+        
+        Drink drink = new Drink();
+        addObject(drink, x, y);
     }
     public void increaseScore()
     {

@@ -16,21 +16,20 @@ public class Frog extends Actor
     public Frog()
     {        
         rightImages = new GreenfootImage[5]; 
-        leftImages = new GreenfootImage[5];  
+        leftImages = new GreenfootImage[5]; 
         for(int i = 0; i < rightImages.length; i++)
         {
             rightImages[i] = new GreenfootImage("images/frog_animate/frog" + i + ".png");
-            //rightImages[i].scale(100,100);
+            rightImages[i].scale(100,100);
             leftImages[i] = new GreenfootImage("images/frog_animate/frog" + i + ".png"); 
             leftImages[i].mirrorHorizontally();
-            //leftImages[i].scale(100,100);
+            leftImages[i].scale(100,100);
 
         }
         setImage(rightImages[0]);
         animTimer = new SimpleTimer();
         animTimer.mark();
     }    
-
     int curIndex = 0;
     public void animate()
     {
@@ -49,7 +48,6 @@ public class Frog extends Actor
             animTimer.mark();
         }
     }
-
     public void act()
     {
         if(Greenfoot.isKeyDown("a"))
@@ -65,14 +63,13 @@ public class Frog extends Actor
         eat();
         animate();
     }
-
     public void eat()
     {
+        MyWorld world = (MyWorld) getWorld();
         if(isTouching(Pizza.class))
         {
             Greenfoot.playSound("frog_sound.mp3");
             removeTouching(Pizza.class);
-            MyWorld world = (MyWorld) getWorld();
             world.increaseScore();
             world.spawnFries();
         }
@@ -80,9 +77,20 @@ public class Frog extends Actor
         {
             Greenfoot.playSound("frog_sound.mp3");
             removeTouching(Fries.class);
-            MyWorld world = (MyWorld) getWorld();
             world.increaseScore();
             world.spawnPizza();
+        }
+        if(world.score > 10)
+        {
+            world.spawnDrink();
+        }
+        if(isTouching(Drink.class))
+        {
+            Greenfoot.playSound("frog_sound.mp3");
+            removeTouching(Drink.class);
+            world.increaseScore();
+            world.spawnDrink();
+        }
         }
     }
 }

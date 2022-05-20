@@ -8,15 +8,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Pizza extends Actor
 {
-    /**
-     * Act - do whatever the Pizza wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private int speed = 2;
     public void act()
     {
         int x = getX();
         int y = getY();
         setLocation(x, y + 2);
+        setLocation(x, y + speed);
         
         MyWorld world = (MyWorld) getWorld();
         if(getY() >= getWorld().getHeight())

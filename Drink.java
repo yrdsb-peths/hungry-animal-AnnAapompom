@@ -1,14 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Fries here.
+ * Write a description of class Drink here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Fries extends Actor
+public class Drink extends Actor
 {
-    private int speed = 2;
+    private int speed = 1;
+
     public void act()
     {
         int x = getX();
