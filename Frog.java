@@ -80,17 +80,5 @@ public class Frog extends Actor
             world.increaseScore();
             world.spawnPizza();
         }
-        if(world.score > 10)
-        {
-            world.spawnDrink();
-        }
-        if(isTouching(Drink.class))
-        {
-            Greenfoot.playSound("frog_sound.mp3");
-            removeTouching(Drink.class);
-            world.increaseScore();
-            world.spawnDrink();
-        }
-        }
     }
 }

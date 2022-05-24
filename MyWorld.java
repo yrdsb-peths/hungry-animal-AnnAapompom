@@ -51,14 +51,7 @@ public class MyWorld extends World
         Fries fries = new Fries();
         addObject(fries, x, y);
     } 
-    public void spawnDrink()
-    {
-        int x = Greenfoot.getRandomNumber(600);
-        int y = 0;
-        
-        Drink drink = new Drink();
-        addObject(drink, x, y);
-    }
+    
     public void increaseScore()
     {
         score++;
